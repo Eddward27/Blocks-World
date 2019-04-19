@@ -9,5 +9,7 @@ Uso: En la carpeta del script ejecutra `python main.py [tipo de búsqueda] [most
 
 Ej: `python main.py bfs si`
 
+Se incluyen dos archivos 'txt' mostrando las salidas de ejecuciones bfs con print de Q y sin print de Q
+
 ## Representación gráfica
-![alt text](https://raw.githubusercontent.com/Eddward27/Tarea-1-IA/master/Explicaci%C3%B3n%20Rep..png)
+![Representación Gráfica](https://raw.githubusercontent.com/Eddward27/Tarea-1-IA/master/Explicaci%C3%B3n%20Rep..png)

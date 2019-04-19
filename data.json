@@ -1,4 +1,4 @@
 {
-    "estadoInicial": ["AC", "DB"],
-    "estadoObjetivo": ["ABCD"]
+    "estadoInicial": ["AGC", "DB"],
+    "estadoObjetivo": ["GABCD"]
 }
