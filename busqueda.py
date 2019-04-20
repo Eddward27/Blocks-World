@@ -32,6 +32,7 @@ def busqueda(cola, visitados, tipoBusqueda, verLista):
         quit()
 
     largoQ = len(cola)  #Largo de la cola para futuro print
+    largoV = len(visitados) #Largo de lista de nodos ya visitados para futuro print
     visitados.append(copy.deepcopy(cola[0]))
     estadoActual = copy.deepcopy(cola[0])
     nodosEncontrados = []
@@ -68,7 +69,6 @@ def busqueda(cola, visitados, tipoBusqueda, verLista):
     else:#if tipoBusqueda == 'dfs':
         cola = nodosEncontrados + cola
     largoN = len(nodosEncontrados)  #Largo de lista de nuevos nodos encontrados para futuro print
-    largoV = len(visitados) #Largo de lista de nodos ya visitados para futuro print
     nodosEncontrados = []
     print('Largo Q: ' + str(largoQ) + ' - Largo Nodos Nuevos: ' + str(largoN) + ' - Largo Nodos Visitados: ' + str(largoV)) #Se imprimen largo de listas en uso
     return cola
