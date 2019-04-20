@@ -64,6 +64,7 @@ def busqueda(cola, visitados, tipoBusqueda, verLista):
     cola.pop(0) #Ya se opero el estado actual, entonces se quita de la cola
     nuevos = copy.deepcopy(nodosEncontrados)
     nodosEncontrados = borrarDuplicados(visitados, nuevos)  #Se eliminan los nodos encontrados que ya hayan sido visitados
+    cola = borrarDuplicados(visitados, cola)    #Se eliminan los nodos que puedan haberse repetido desde distintos estados a uno en común
     if tipoBusqueda == 'bfs':   #Tipo de busqueda
         cola = cola + nodosEncontrados
     else:#if tipoBusqueda == 'dfs':
@@ -74,13 +75,8 @@ def busqueda(cola, visitados, tipoBusqueda, verLista):
     return cola
 
 def borrarDuplicados(visitados, nuevos):    #Borra los nodos duplicados de 'nuevos' que ya se encuentren en 'visitados'
-    indexDup = []
-    for i in range(0, len(nuevos)): #Se verifican todos los estados que se encuentren en 'nuevos'
-        for dup in visitados:   #Por cada estado en 'nuevos' se revisa la lista de 'visitados'
-            if rep.mismoEstado(dup['estados'], nuevos[i]['estados']):   #Si se encuentra un estado repetido, se guarda su índice para borrarlo cuando la búsqueda de repetidos termine
-                indexDup.append(i)
-                break   #Si se encontró no es necesario seguir con la busqueda en el resto de la lista de 'visitados'
-    indexDup.sort(reverse = True)   #Se ordena la lista de índices de forma descendente para borrar por índice sin alterar el orden con pop()
-    for index in indexDup:
-        nuevos.pop(index)   #Se borran todos los repetidos
-    return nuevos
+    for dup in visitados:   #Por cada nodo ya visitado se busca si se encuentra en la lista de nodos nuevos
+        for nuevo in nuevos:
+            if rep.mismoEstado(dup['estados'], nuevo['estados']):   #Si los estados son los mismos, se borra
+                nuevos.remove(nuevo)
+    return nuevos   #Retorna la lista sin duplicados
