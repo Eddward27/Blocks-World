@@ -1,4 +1,4 @@
-# Tarea-1-IA
+# Problema Blocks World
 Blocks World con BFS y DFS
 
 Para ejecutar el script es necesario [Python 3](https://www.python.org/downloads/)
